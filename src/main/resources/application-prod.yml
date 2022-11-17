@@ -13,5 +13,3 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
-#    username: ENC(IDdd/EqGT8hyHUX7chZTOQ9BbJfnWbm7)
-#    password: ENC(IgFTdDFO/Wqr7UamoziAnhsIEAIXDk6p)
