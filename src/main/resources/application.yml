@@ -2,16 +2,6 @@ spring:
   profiles:
     active: dev
 
-
-
 org:
   gradle:
     daemon: false
-
-jasypt:
-  encryptor:
-    bean: jasyptStringEncryptor
-    password: end
-    property:
-      prefix: ENC(
-      suffix: )
