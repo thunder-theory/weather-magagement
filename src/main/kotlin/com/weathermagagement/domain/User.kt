@@ -19,4 +19,7 @@ data class User(
 
     @Column
     val password: String,
-    )
+
+    @Column
+    val place: String,
+    ) : BaseEntity()

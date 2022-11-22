@@ -28,6 +28,6 @@ data class Work(
     @Column
     val contents: String,
 
-
-
+    @Column
+    val pay: Long,
 )
