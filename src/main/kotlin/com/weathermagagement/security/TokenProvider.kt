@@ -53,11 +53,16 @@ class TokenProvider {
             .parseClaimsJws(token)
             .body
 
-//        val authorities: Collection<Class<out GrantedAuthority>> =
+        val authorities: Collection<GrantedAuthority?> = Arrays.stream(
+            claims[AUTHORITIES_KEY].toString().split(",".toRegex()).dropLastWhile { it.isEmpty() }
+                .toTypedArray())
+            .map { role: String? ->
+                SimpleGrantedAuthority(
+                    role
+                )
+            }
+            .collect(Collectors.toList())
 
-        val authorities: List<out GrantedAuthority> = claims.get(AUTHORITIES_KEY).toString().split(",")
-            .map { it -> SimpleGrantedAuthority(it) }
-            .toList()
 
         val principal = User(claims.subject, "", authorities)
         return UsernamePasswordAuthenticationToken(principal, token, authorities)

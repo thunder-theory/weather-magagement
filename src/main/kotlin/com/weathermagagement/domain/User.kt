@@ -12,7 +12,7 @@ import javax.persistence.Table
 data class User(
     @Id
     @GeneratedValue
-    val id : Long? = null,
+    var id : Long? = null,
 
     @Column
     val username: String,

@@ -2,7 +2,6 @@ package com.weathermagagement.security.util
 
 import mu.KotlinLogging
 import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import java.util.Optional
