@@ -11,7 +11,7 @@ import javax.persistence.Table
 data class Work(
     @Id
     @GeneratedValue
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column
     val year: Int,
@@ -28,6 +28,6 @@ data class Work(
     @Column
     val contents: String,
 
-
-
+    @Column
+    val pay: Long,
 )

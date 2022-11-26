@@ -12,11 +12,14 @@ import javax.persistence.Table
 data class User(
     @Id
     @GeneratedValue
-    val id : Long? = null,
+    var id : Long? = null,
 
     @Column
     val username: String,
 
     @Column
     val password: String,
-    )
+
+    @Column
+    val place: String,
+    ) : BaseEntity()
