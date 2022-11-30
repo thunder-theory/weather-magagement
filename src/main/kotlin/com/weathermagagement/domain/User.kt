@@ -21,5 +21,5 @@ data class User(
     val password: String,
 
     @Column
-    val place: String,
+    var place: String,
     ) : BaseEntity()

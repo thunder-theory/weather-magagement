@@ -2,6 +2,7 @@ package com.weathermagagement.controller
 
 import com.weathermagagement.dto.LoginRequestDto
 import com.weathermagagement.dto.SignupRequest
+import com.weathermagagement.dto.UpdateUserRequestDto
 import com.weathermagagement.security.service.AuthService
 import com.weathermagagement.service.UserService
 import mu.KotlinLogging
@@ -31,6 +32,13 @@ class UserController(
     @ResponseStatus(HttpStatus.OK)
     fun login(@RequestBody dto: LoginRequestDto)
     = authService.authenticate(username = dto.username,password = dto.password)
+
+    @PostMapping("/update_user")
+    @ResponseStatus(HttpStatus.OK)
+    fun updateUser(@RequestBody dto: UpdateUserRequestDto){
+        userService.updatePlace(dto)
+    }
+
 
     @GetMapping("/test2")
     fun test() = "test"
