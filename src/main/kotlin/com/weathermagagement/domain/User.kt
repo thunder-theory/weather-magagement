@@ -1,10 +1,6 @@
 package com.weathermagagement.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 
 @Entity
@@ -22,4 +18,8 @@ data class User(
 
     @Column
     var place: String,
+
+    @OneToMany(cascade = [CascadeType.ALL])
+    @JoinColumn(name="username")
+    private var chartDataWithBenefit: MutableList<Work> = ArrayList<Work>(),
     ) : BaseEntity()

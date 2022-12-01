@@ -13,6 +13,9 @@ data class Work(
     @GeneratedValue
     var id: Long? = null,
 
+    @Column(name = "username")
+    var username: String,
+
     @Column
     val year: Int,
 
