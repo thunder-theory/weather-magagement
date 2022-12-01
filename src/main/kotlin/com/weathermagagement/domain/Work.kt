@@ -13,7 +13,7 @@ data class Work(
     @GeneratedValue
     var id: Long? = null,
 
-    @Column(name = "username")
+    @Column(name = "username", length = 250)
     var username: String,
 
     @Column

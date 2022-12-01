@@ -1,6 +1,8 @@
 package com.weathermagagement.controller
 
+import com.weathermagagement.domain.Work
 import com.weathermagagement.dto.AddWorkDto
+import com.weathermagagement.dto.usernameDto
 import com.weathermagagement.service.WorkService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController
 class WorkController(
     private val workService: WorkService
 ) {
+
+    @PostMapping("/index")
+    @ResponseStatus(HttpStatus.OK)
+    fun index(@RequestBody usernameDto: usernameDto): List<Work>{
+        return workService.indexWorks(usernameDto)
+    }
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.OK)

@@ -4,4 +4,5 @@ import com.weathermagagement.domain.Work
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface WorkRepository: JpaRepository<Work, Long> {
+    fun findAllByUsername(username: String): List<Work>
 }

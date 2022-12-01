@@ -21,5 +21,5 @@ data class User(
 
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinColumn(name="username")
-    private var chartDataWithBenefit: MutableList<Work> = ArrayList<Work>(),
+    private var works: MutableList<Work> = ArrayList<Work>(),
     ) : BaseEntity()
