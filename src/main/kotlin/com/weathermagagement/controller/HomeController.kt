@@ -12,6 +12,6 @@ class HomeController {
     @GetMapping("/test")
     fun test():String?{
         log.info { "test start" }
-        return "Hello Weather"
+        return "Hello Weather!"
     }
 }
