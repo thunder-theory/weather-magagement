@@ -38,30 +38,6 @@ class SecurityConfig(
 
     override fun configure(http: HttpSecurity) {
 
-
-//        http
-//            .csrf().disable()
-//            .authorizeHttpRequests()
-//            .antMatchers("/user/**").permitAll()
-//            .anyRequest().authenticated()
-//        http
-//            .cors().configurationSource(configurationSource())
-//            .and()
-//            .exceptionHandling()
-//            .authenticationEntryPoint(jwtAuthenticationEntryFilter)
-//            .accessDeniedHandler(jwtAccessDeniedHandler)
-//            .and()
-//            .sessionManagement()
-//            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//            .and()
-//            .headers()
-//            .frameOptions()
-//            .sameOrigin()
-//            .and()
-//            .apply(JwtSecurityConfig(tokenProvider))
-
-        //==============
-
         http.authorizeHttpRequests()
             .antMatchers(HttpMethod.POST ,"/login").permitAll()
             .antMatchers(HttpMethod.POST ,"/signup").permitAll()
