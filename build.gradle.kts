@@ -3,14 +3,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.7.5"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
-    id("com.google.cloud.tools.jib") version "3.3.1"
+    id("com.google.cloud.tools.jib") version "3.1.4"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
 }
 
 group = "com"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
@@ -72,4 +72,22 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+jib {
+    from{
+        image = "openjdk:11-jdk-slim"
+    }
 
+    to {
+        image = "bsj1209/weather-manage"
+        tags = setOf(project.version.toString(), "latest")
+        auth {
+            username = "bsj1209"
+            password = "sj991209@"
+        }
+    }
+    container {
+        ports = listOf("8080")
+        volumes = listOf("/tmp")
+        jvmFlags = mutableListOf("-Dspring.profiles.active=prod")
+    }
+}
