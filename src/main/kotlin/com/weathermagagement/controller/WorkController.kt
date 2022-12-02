@@ -2,7 +2,9 @@ package com.weathermagagement.controller
 
 import com.weathermagagement.domain.Work
 import com.weathermagagement.dto.AddWorkDto
-import com.weathermagagement.dto.usernameDto
+import com.weathermagagement.dto.UsernameDto
+import com.weathermagagement.dto.WorkByDateDto
+import com.weathermagagement.dto.WorkByMonthDto
 import com.weathermagagement.service.WorkService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
@@ -17,10 +19,22 @@ class WorkController(
     private val workService: WorkService
 ) {
 
-    @PostMapping("/index")
+    @PostMapping("/findAll")
     @ResponseStatus(HttpStatus.OK)
-    fun index(@RequestBody usernameDto: usernameDto): List<Work>{
-        return workService.indexWorks(usernameDto)
+    fun findAll(@RequestBody usernameDto: UsernameDto): List<Work>{
+        return workService.findAllWorks(usernameDto)
+    }
+
+    @PostMapping("/findByDate")
+    @ResponseStatus(HttpStatus.OK)
+    fun find(@RequestBody workByDateDto: WorkByDateDto ): List<Work> {
+        return workService.findWorksByDate(workByDateDto)
+    }
+
+    @PostMapping("/findByMonth")
+    @ResponseStatus(HttpStatus.OK)
+    fun find(@RequestBody workByMonthDto: WorkByMonthDto): List<Work> {
+        return workService.findWorksByMonth(workByMonthDto)
     }
 
     @PostMapping("/add")

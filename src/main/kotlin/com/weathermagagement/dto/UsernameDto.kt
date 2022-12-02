@@ -1,5 +1,5 @@
 package com.weathermagagement.dto
 
-class usernameDto(
+class UsernameDto(
     var username: String
 )
