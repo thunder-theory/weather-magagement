@@ -42,6 +42,7 @@ class SecurityConfig(
             .antMatchers(HttpMethod.POST ,"/login").permitAll()
             .antMatchers(HttpMethod.POST ,"/signup").permitAll()
             .antMatchers(HttpMethod.GET , "/test").permitAll()
+            .antMatchers("/h2/").permitAll()
             .antMatchers("/v2/api-docs/**").permitAll()
             .antMatchers("/swagger-ui/index.html/**").permitAll()
             .anyRequest().authenticated()

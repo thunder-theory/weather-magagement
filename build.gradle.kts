@@ -40,6 +40,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
 
     //JASYPT
     implementation ("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
@@ -53,11 +54,18 @@ dependencies {
     implementation ("io.jsonwebtoken:jjwt-impl:0.11.5")
     implementation ("io.jsonwebtoken:jjwt-jackson:0.11.5")
 
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.12.3")
+    runtimeOnly("com.h2database:h2")
+
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("com.mysql:mysql-connector-j")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("io.mockk:mockk:1.10.4")
+    testImplementation("org.mockito:mockito-inline:2.13.0")
+    testCompileOnly("com.h2database:h2")
+
 
 }
 

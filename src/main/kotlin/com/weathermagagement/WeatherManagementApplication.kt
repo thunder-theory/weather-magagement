@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 
 @SpringBootApplication
 @EnableJpaAuditing
-class WeatherMagagementApplication
+class WeatherManagementApplication
 
 fun main(args: Array<String>) {
-    runApplication<WeatherMagagementApplication>(*args)
+    runApplication<WeatherManagementApplication>(*args)
 }
